@@ -7,7 +7,6 @@ authors = [
 ]
 dependencies = [
     "groq>=0.9.0",
-    "pydantic-settings>=2.4.0",
     "asyncclick>=8.1.7.2",
     "tqdm>=4.66.5",
 ]
@@ -23,7 +22,8 @@ distribution = false
 [tool.pdm.scripts]
 lint = "ruff check ."
 typecheck = "pyright ."
-check = { composite = ["lint", "typecheck"] }
+deptry = "deptry ."
+check = { composite = ["lint", "typecheck", "deptry"] }
 
 format = "ruff check --fix ."
 fix = { composite = ["format"] }
@@ -31,5 +31,10 @@ fix = { composite = ["format"] }
 listy = {cmd = "python -m listy", env_file = ".env"}
 
 
-[tool.pdm.dev-dependencies]
-dev = ["ruff>=0.5.7", "pyright>=1.1.375"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.5.7",
+    "pyright>=1.1.375",
+    "deptry>=0.21.2",
+]
