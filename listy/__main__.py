@@ -10,9 +10,10 @@ from .transcribe import transcribe
 @aclick.argument(
     "paths", type=aclick.Path(exists=True, dir_okay=False, path_type=Path), nargs=-1
 )
-async def main(paths: tuple[Path, ...]):
+@aclick.option("--language", default="pl")
+async def main(paths: tuple[Path, ...], language: str):
     transcriptions = [
-        await transcribe(path) for path in tqdm(paths, desc="Transcribing")
+        await transcribe(path, language) for path in tqdm(paths, desc="Transcribing")
     ]
 
     joined_text = "\n\n".join(transcriptions)
