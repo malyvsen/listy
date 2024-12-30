@@ -28,6 +28,8 @@ check = { composite = ["lint", "typecheck"] }
 format = "ruff check --fix ."
 fix = { composite = ["format"] }
 
+listy = {cmd = "python -m listy", env_file = ".env"}
+
 
 [tool.pdm.dev-dependencies]
 dev = ["ruff>=0.5.7", "pyright>=1.1.375"]

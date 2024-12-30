@@ -1,5 +1,10 @@
+import os
+
 from groq import AsyncGroq
 
-from .settings import settings
+_ENV_VAR_NAME = "GROQ_API_KEY"
+_api_key = os.environ.get(_ENV_VAR_NAME)
+if not _api_key:
+    raise ValueError(f"{_ENV_VAR_NAME} environment variable is not set")
 
-groq_client = AsyncGroq(api_key=settings.groq_api_key)
+groq_client = AsyncGroq(api_key=_api_key)
