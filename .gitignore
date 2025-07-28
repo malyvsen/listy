@@ -3,12 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# PDM stuff
-.pdm.toml
-.pdm-python
-.pdm-build/
-__pypackages__/
-.venv
-
 # Secrets
 .env
+
+# moon
+.moon/cache
+.moon/docker

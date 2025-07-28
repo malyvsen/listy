@@ -5,36 +5,10 @@ description = "Turns voice messages into letters (these long-form text things pe
 authors = [
     { name = "malyvsen", email = "5940672+malyvsen@users.noreply.github.com" },
 ]
-dependencies = [
-    "groq>=0.9.0",
-    "asyncclick>=8.1.7.2",
-    "tqdm>=4.66.5",
-]
+dependencies = ["groq>=0.9.0", "asyncclick>=8.1.7.2", "tqdm>=4.66.5"]
 requires-python = "==3.12.*"
 readme = "README.md"
 license = { text = "GPLv3" }
 
-
-[tool.pdm]
-distribution = false
-
-
-[tool.pdm.scripts]
-lint = "ruff check ."
-typecheck = "pyright ."
-deptry = "deptry ."
-check = { composite = ["lint", "typecheck", "deptry"] }
-
-format = "ruff check --fix ."
-fix = { composite = ["format"] }
-
-listy = {cmd = "python -m listy", env_file = ".env"}
-
-
-
 [dependency-groups]
-dev = [
-    "ruff>=0.5.7",
-    "pyright>=1.1.375",
-    "deptry>=0.21.2",
-]
+dev = ["ruff>=0.5.7", "pyright>=1.1.375", "deptry>=0.21.2"]

@@ -1,0 +1,37 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+project:
+  description: 'Turns voice messages into letters (these long-form text things people barely write anymore).'
+
+language: 'python'
+
+tasks:
+  run:
+    command: uv run python -m listy
+    local: true
+    options:
+      envFile: .env
+  
+  check:
+    deps:
+      - check-types
+      - check-lint
+      - check-deps
+  
+  check-types:
+    command: uv run pyright .
+  
+  check-lint:
+    command: uv run ruff check .
+  
+  check-deps:
+    command: uv run deptry .
+  
+  fix:
+    local: true
+    deps:
+      - fix-format
+  
+  fix-format:
+    command: uv run ruff check --fix .
+    local: true
