@@ -16,4 +16,8 @@ readme = "README.md"
 license = { text = "GPLv3" }
 
 [dependency-groups]
-dev = ["ruff>=0.5.7", "pyright>=1.1.375", "deptry>=0.21.2"]
+dev = [
+    "ruff>=0.5.7",
+    "deptry>=0.21.2",
+    "ty>=0.0.1a33",
+]
