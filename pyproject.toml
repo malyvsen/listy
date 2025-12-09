@@ -15,14 +15,9 @@ dependencies = [
     "cerebras-cloud-sdk>=1.59.0",
     "asyncclick>=8.3.0.7",
 ]
-requires-python = "==3.12.*"
+requires-python = "==3.14.*"
 readme = "README.md"
 license = { text = "GPLv3" }
 
 [dependency-groups]
-dev = [
-    "ruff>=0.5.7",
-    "deptry>=0.21.2",
-    "ty>=0.0.1a33",
-    "pytest>=9.0.2",
-]
+dev = ["ruff>=0.5.7", "deptry>=0.21.2", "ty>=0.0.1a33", "pytest>=9.0.2"]
