@@ -1,4 +1,4 @@
-from listy.text_processing import (
+from listy.list_extraction import (
     AmbiguousLists,
     ExtractedList,
     NoListFound,
