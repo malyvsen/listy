@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from .groq_client import groq_client
+from .clients import groq_client
 
 
 async def transcribe(path: Path, language: str) -> str:
