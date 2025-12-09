@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "listy"
 version = "0.1.0"
@@ -20,4 +24,5 @@ dev = [
     "ruff>=0.5.7",
     "deptry>=0.21.2",
     "ty>=0.0.1a33",
+    "pytest>=9.0.2",
 ]

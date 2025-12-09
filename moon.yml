@@ -12,11 +12,8 @@ tasks:
     options:
       envFile: .env
 
-  check:
-    deps:
-      - check-types
-      - check-lint
-      - check-deps
+  test:
+    command: uv run pytest .
 
   check-types:
     command: uv run ty check .
