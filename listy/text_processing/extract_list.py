@@ -2,7 +2,7 @@
 
 from .bullet import extract_bullet_lists
 from .numbered import extract_numbered_lists
-from .types import (
+from .return_types import (
     AmbiguousLists,
     ExtractedList,
     ExtractionFailure,

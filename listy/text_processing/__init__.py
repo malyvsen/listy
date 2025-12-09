@@ -1,5 +1,5 @@
 from .extract_list import extract_list
-from .types import (
+from .return_types import (
     AmbiguousLists,
     ExtractedList,
     ExtractionFailure,
