@@ -7,6 +7,8 @@ from listy.clients import cerebras_client
 
 
 class MainArgument(BaseModel):
+    """The author's main argument, stated concisely with key supporting points."""
+
     main_argument: str
 
 
@@ -14,13 +16,7 @@ async def identify_main_argument(text: str) -> MainArgument:
     """Identify the main argument of a text using Cerebras."""
     completion = await cerebras_client.chat.completions.create(
         model="llama-3.3-70b",
-        messages=[
-            {
-                "role": "system",
-                "content": "You are a helpful assistant that identifies the main argument of a text. Extract the core thesis or central claim being made.",
-            },
-            {"role": "user", "content": text},
-        ],
+        temperature=0,
         response_format={
             "type": "json_schema",
             "json_schema": {
@@ -29,6 +25,13 @@ async def identify_main_argument(text: str) -> MainArgument:
                 "schema": MainArgument.model_json_schema(),
             },
         },
+        messages=[
+            {
+                "role": "system",
+                "content": "Find where the author sums up their view and state it in first person. Include their exact wording. Add a few supporting points. No third-person. Input language only.",
+            },
+            {"role": "user", "content": text},
+        ],
     )
     if not isinstance(completion, ChatCompletionResponse):
         raise TypeError(f"Unexpected response type: {type(completion)}")
