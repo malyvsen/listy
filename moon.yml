@@ -14,6 +14,8 @@ tasks:
 
   test:
     command: uv run pytest .
+    options:
+      envFile: .env
 
   check-types:
     command: uv run ty check .
