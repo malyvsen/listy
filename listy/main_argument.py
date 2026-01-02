@@ -12,8 +12,7 @@ class MainArgument(BaseModel):
     main_argument: str
 
 
-async def identify_main_argument(text: str) -> MainArgument:
-    """Identify the main argument of a text using Cerebras."""
+async def extract_main_argument(text: str) -> str:
     completion = await cerebras_client.chat.completions.create(
         model="llama-3.3-70b",
         temperature=0,
@@ -38,4 +37,4 @@ async def identify_main_argument(text: str) -> MainArgument:
     response_content = completion.choices[0].message.content
     if response_content is None:
         raise ValueError("No content in response")
-    return MainArgument.model_validate(json.loads(response_content))
+    return MainArgument.model_validate(json.loads(response_content)).main_argument
