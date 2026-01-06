@@ -6,13 +6,12 @@ from pydantic import BaseModel
 from listy.clients import cerebras_client
 
 
-class MainArgument(BaseModel):
-    """The author's main argument, stated concisely with key supporting points."""
-
-    main_argument: str
-
-
 async def extract_main_argument(text: str) -> str:
+    class MainArgument(BaseModel):
+        """The author's main argument, stated concisely with key supporting points."""
+
+        main_argument: str
+
     completion = await cerebras_client.chat.completions.create(
         model="llama-3.3-70b",
         temperature=0,
