@@ -1,4 +1,4 @@
-from listy.main_argument import extract_main_argument
+from listy.analysis import extract_main_argument
 
 
 async def test_english():

@@ -1,4 +1,4 @@
-from listy.topics import extract_topics
+from listy.analysis import extract_topics
 
 
 async def test_english():
